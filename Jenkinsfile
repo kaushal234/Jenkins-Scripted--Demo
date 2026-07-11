@@ -18,27 +18,27 @@ node {
             echo "Installing dependencies"
 
             if (isUnix()) {
-                sh 'pip install -r requirements.txt'
+                sh 'python3 -m pip install -r requirements.txt'
             } else {
-                bat 'pip install -r requirements.txt'
+                bat 'python3 -m pip install -r requirements.txt'
             }
         }
         stage('Run Application') {
             echo "Running the application"
 
             if (isUnix()) {
-                sh 'python app.py'
+                sh 'python3 app.py'
             } else {
-                bat 'python app.py'
+                bat 'python3 app.py'
             }
         }
         stage('Run Tests') {
             echo "Running tests"
 
             if (isUnix()) {
-                sh 'pytest test_app.py'
+                sh 'python3 pytest test_app.py'
             } else {
-                bat 'pytest test_app.py'
+                bat 'python3 pytest test_app.py'
             }
         }
         stage('build result'){
